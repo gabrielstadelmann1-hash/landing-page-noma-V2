@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4f3ee">
+<title>NOMA – Le monde à votre façon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f3ee;--ink:#161a16;--muted:#6d716a;--forest:#1f3a2c;--lime:#d6f26a;--sand:#e7e3d6;--sans:"Inter Tight",system-ui,sans-serif;--serif:"Instrument Serif",Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+img{display:block;width:100%;height:100%;object-fit:cover;background:linear-gradient(135deg,#a4b3a3,#3f5b49)}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+em{font-family:var(--serif);font-style:italic;font-weight:400}
+.wrap{width:min(1240px,calc(100% - 56px));margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.5rem;border-radius:99px;background:var(--ink);color:#fff;font-weight:600;font-size:.95rem;transition:transform .25s,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.lime{background:var(--lime);color:var(--forest)}
+.btn.glass{background:rgba(255,255,255,.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.3)}
+
+/* nav */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;width:min(920px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;padding:.6rem .6rem .6rem 1.2rem;border-radius:99px;background:rgba(244,243,238,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(22,26,22,.08)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.3rem;letter-spacing:-.05em}
+.mark{width:24px;height:24px;border-radius:50%;background:var(--forest);color:var(--lime);display:grid;place-items:center;font-size:.8rem}
+.links{display:flex;gap:2rem;font-size:.9rem;color:#4b5048}
+.links a:hover{color:var(--ink)}
+.nav .btn{padding:.7rem 1.2rem;font-size:.85rem}
+
+/* hero */
+.hero{position:relative;min-height:100svh;color:#fff;overflow:hidden;border-radius:0 0 44px 44px;display:flex;align-items:flex-end;background:var(--forest)}
+.bg{position:absolute;inset:-6% 0;will-change:transform}
+.bg img{position:absolute;inset:0;opacity:0;transform:scale(1.08);transition:opacity 1.2s ease,transform 9s ease-out}
+.bg img.on{opacity:1;transform:scale(1)}
+.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,22,15,.72),rgba(10,22,15,.1) 65%),linear-gradient(0deg,rgba(10,22,15,.55),transparent 45%)}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:end;padding:130px 0 64px}
+h1{font-size:clamp(3.2rem,8.2vw,8rem);line-height:.92;letter-spacing:-.06em;font-weight:500}
+h1 em{letter-spacing:-.04em}
+.lead{max-width:30rem;margin:1.6rem 0 1.8rem;font-size:1.1rem;color:rgba(255,255,255,.82)}
+.moods{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:1.6rem}
+.moods span{font-size:.9rem;color:rgba(255,255,255,.75);margin-right:.3rem}
+.chip{padding:.6rem 1.1rem;border-radius:99px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:.9rem;font-weight:500;transition:background .3s,color .3s}
+.chip[aria-pressed="true"]{background:var(--lime);color:var(--forest);border-color:var(--lime)}
+.proof{display:flex;align-items:center;gap:.8rem;margin-top:2rem;font-size:.85rem;color:rgba(255,255,255,.75)}
+.av{display:flex}.av i{width:30px;height:30px;border-radius:50%;border:2px solid #25392d;margin-left:-8px;overflow:hidden}.av i:first-child{margin-left:0}
+
+/* phone */
+.stage{position:relative;perspective:1400px;display:grid;place-items:center;min-height:560px}
+.float{animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.phone{width:270px;height:550px;border-radius:46px;padding:9px;background:linear-gradient(125deg,#fdfdfd,#a3a6a1 18%,#f1f2ef 32%,#74786f 50%,#f6f7f4 66%,#9da099);box-shadow:0 50px 80px rgba(0,0,0,.4),inset 0 0 0 1px #fff;transition:transform .35s cubic-bezier(.2,.8,.2,1);transform:rotateY(-14deg) rotateX(4deg);position:relative}
+.screen{width:100%;height:100%;border-radius:38px;background:#f7f8f4;color:var(--ink);overflow:hidden;position:relative;border:1px solid #222}
+.isl{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:80px;height:22px;border-radius:20px;background:#0f110e;z-index:3}
+.sbar{display:flex;justify-content:space-between;padding:16px 22px 0;font-size:.7rem;font-weight:700}
+.hi{padding:34px 18px 10px}.hi small{font-size:.62rem;color:#80857b}.hi b{display:block;font-size:1.4rem;letter-spacing:-.05em}
+.feat{position:relative;margin:0 14px;height:190px;border-radius:18px;overflow:hidden}
+.feat:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+.feat div{position:absolute;z-index:1;left:13px;bottom:12px;color:#fff}.feat small{font-size:.58rem;opacity:.85}.feat b{display:block;font-size:1.1rem;letter-spacing:-.03em}
+.plan{padding:14px 18px}.plan h4{font-size:.75rem;margin-bottom:.6rem}
+.plan li{list-style:none;display:flex;gap:.6rem;align-items:center;font-size:.68rem;padding:.45rem 0;border-top:1px solid #e7e9e1}
+.plan li i{width:8px;height:8px;border-radius:50%;background:var(--forest);flex:none}.plan li small{margin-left:auto;color:#80857b}
+.tab{position:absolute;bottom:0;left:0;right:0;height:44px;background:rgba(255,255,255,.95);border-top:1px solid #e7e9e1;display:flex;justify-content:space-around;align-items:center;font-size:.9rem;color:#a2a69d}
+.tab .a{color:var(--forest)}
+.note{position:absolute;z-index:4;padding:.8rem 1rem;border-radius:18px;background:rgba(255,255,255,.18);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.35);font-size:.8rem;box-shadow:0 20px 40px rgba(0,0,0,.2)}
+.note b{display:block;font-size:1.3rem;letter-spacing:-.04em;line-height:1.1}
+.n1{right:-4%;top:12%}.n2{left:-4%;bottom:14%;background:var(--lime);color:var(--forest);border-color:var(--lime)}
+
+/* marquee */
+.marq{overflow:hidden;padding:2.2rem 0;border-bottom:1px solid rgba(22,26,22,.1)}
+.track{display:flex;gap:3rem;width:max-content;animation:mq 38s linear infinite;font-size:clamp(1.8rem,4vw,3.4rem);letter-spacing:-.04em;font-weight:500;white-space:nowrap}
+.track em{color:var(--forest)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding:130px 0 40px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:3rem;margin-bottom:3rem}
+h2{font-size:clamp(2.4rem,5.4vw,5rem);line-height:.96;letter-spacing:-.055em;font-weight:500}
+.head p{max-width:24rem;color:var(--muted)}
+
+/* accordion destinations */
+.acc{display:flex;gap:12px;height:640px}
+.dest{position:relative;flex:1;border-radius:30px;overflow:hidden;cursor:pointer;color:#fff;transition:flex .8s cubic-bezier(.2,.7,.1,1),height .8s cubic-bezier(.2,.7,.1,1)}
+.dest.on{flex:4.2}
+.dest img{position:absolute;inset:0;transition:transform 1.2s}
+.dest.on img{transform:scale(1.05)}
+.dest:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,18,12,.72),rgba(8,18,12,.05) 55%)}
+.v{position:absolute;z-index:2;left:50%;bottom:26px;transform:translateX(-50%);writing-mode:vertical-rl;rotate:180deg;font-size:1.3rem;font-weight:500;letter-spacing:-.02em;transition:opacity .4s;white-space:nowrap}
+.dest.on .v{opacity:0}
+.c{position:absolute;z-index:2;left:30px;right:30px;bottom:28px;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .6s;pointer-events:none}
+.dest.on .c{opacity:1;transform:none;transition-delay:.25s}
+.c small{display:inline-block;padding:.3rem .8rem;border-radius:99px;background:rgba(255,255,255,.2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:.78rem;margin-bottom:.9rem}
+.c h3{font-size:clamp(2rem,3.4vw,3.2rem);letter-spacing:-.05em;font-weight:500;line-height:1}
+.c p{margin-top:.6rem;color:rgba(255,255,255,.85);max-width:26rem}
+
+/* story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:start}
+.pin{position:sticky;top:11vh;height:78vh;display:grid;place-items:center}
+.pin .phone{transform:rotateY(8deg) rotateX(3deg)}
+.pin:before{content:"";position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:var(--lime);opacity:.55;filter:blur(2px)}
+.pin .phone{position:relative}
+.sc{position:absolute;inset:0;opacity:0;transition:opacity .7s;background:#f7f8f4}
+.story[data-s="0"] .s0,.story[data-s="1"] .s1,.story[data-s="2"] .s2{opacity:1}
+.sc .im{height:58%;position:relative}
+.sc .im:after{content:"";position:absolute;inset:50% 0 0;background:linear-gradient(transparent,#f7f8f4)}
+.sc .tx{padding:0 20px}.sc h5{font-size:1.25rem;letter-spacing:-.04em;line-height:1.1}.sc p{font-size:.7rem;color:#777c73;margin-top:.5rem}
+.sc .bar{margin:16px 20px 0;height:4px;background:#e4e6de;border-radius:4px;overflow:hidden}.sc .bar i{display:block;height:100%;background:var(--forest);border-radius:4px}
+.steps .step{min-height:84vh;display:flex;flex-direction:column;justify-content:center;max-width:27rem;opacity:.28;transition:opacity .5s}
+.steps .step.on{opacity:1}
+.step h3{font-size:clamp(2rem,3.8vw,3.4rem);letter-spacing:-.055em;line-height:1;font-weight:500;margin-bottom:1rem}
+.step p{color:var(--muted);font-size:1.08rem}
+
+/* manifesto */
+.man{background:var(--forest);color:#fff;border-radius:44px;margin:130px 14px 0;padding:110px 0;overflow:hidden}
+.mg{display:grid;grid-template-columns:1.1fr .9fr;gap:5vw;align-items:center}
+.man h2 em{color:var(--lime)}
+.man p{color:rgba(255,255,255,.72);margin:1.6rem 0 2rem;max-width:30rem;font-size:1.1rem}
+.arch{height:600px;border-radius:300px 300px 28px 28px;overflow:hidden}
+.arch img{transform:scale(1.15);transition:transform .2s}
+
+/* cta */
+.cta{margin:14px;border-radius:44px;background:var(--lime);color:var(--forest);padding:120px 24px;text-align:center}
+.cta h2{font-size:clamp(3rem,8vw,7.5rem)}
+.cta p{max-width:30rem;margin:1.4rem auto 2.2rem;font-size:1.1rem;color:#3d5a24}
+.form{display:flex;gap:.5rem;max-width:480px;margin:0 auto;padding:.4rem;border-radius:99px;background:#fff}
+.form input{flex:1;min-width:0;border:0;background:none;padding:0 1.2rem;font:inherit;color:var(--ink);outline:0}
+.form .btn{background:var(--forest);color:#fff}
+footer{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:2.4rem 0 3rem;font-size:.85rem;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,30px);opacity:0;z-index:99;padding:.9rem 1.4rem;border-radius:99px;background:var(--ink);color:#fff;font-size:.9rem;transition:.4s;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:900px){
+  .links{display:none}
+  .hero .wrap{grid-template-columns:1fr;padding:110px 0 40px}
+  .stage{min-height:520px;order:-1}.phone{transform:rotateY(-8deg) scale(.88)}
+  .n1{right:2%}.n2{left:2%}
+  .head{flex-direction:column;align-items:start;gap:1.2rem}
+  .acc{flex-direction:column;height:auto}.dest{flex:none;height:92px}.dest.on{flex:none;height:420px}
+  .v{writing-mode:horizontal-tb;rotate:0deg;left:24px;bottom:30px;transform:none}
+  .story{grid-template-columns:1fr}.pin{top:70px;height:52vh;z-index:0}.pin .phone{transform:scale(.66)}
+  .steps .step{min-height:62vh;background:rgba(244,243,238,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);position:relative;z-index:1;padding:0}
+  .mg{grid-template-columns:1fr}.arch{height:420px}
+  .sec{padding-top:90px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top"><span class="mark">✳</span>NOMA</a>
+  <nav class="links"><a href="#destinations">Destinations</a><a href="#experience">L’expérience</a><a href="#approche">Notre approche</a></nav>
+  <button class="btn" data-toast>Découvrir NOMA</button>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+  <div class="bg" id="bg">
+    <img data-m="mer" class="on" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2000&q=85" alt="Maisons colorées sur la côte italienne">
+    <img data-m="montagne" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85" alt="Sommets alpins baignés de lumière">
+    <img data-m="iles" src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=2000&q=85" alt="Côte méditerranéenne et eau turquoise">
+  </div>
+  <div class="wrap">
+    <div>
+      <h1>Le monde<br>à votre <em>façon.</em></h1>
+      <p class="lead">Moins de listes à cocher, plus de moments qui restent. NOMA imagine des voyages qui vous ressemblent, jusque dans les détails que vous n’auriez pas pensé chercher.</p>
+      <div class="moods" role="group" aria-label="Choisir une ambiance">
+        <span>Aujourd’hui, j’ai envie de</span>
+        <button class="chip" data-mood="mer" aria-pressed="true">Mer</button>
+        <button class="chip" data-mood="montagne" aria-pressed="false">Montagne</button>
+        <button class="chip" data-mood="iles" aria-pressed="false">Îles</button>
+      </div>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+        <button class="btn lime" data-toast>Explorer l’expérience ↗</button>
+        <a class="btn glass" href="#destinations">Voir les destinations</a>
+      </div>
+      <div class="proof">
+        <div class="av">
+          <i><img src="https://images.unsplash.com/photo-1534520739778-a2f4e2f6f6a8?auto=format&fit=crop&w=100&q=80" alt=""></i>
+          <i><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt=""></i>
+          <i><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&q=80" alt=""></i>
+        </div>
+        Fait pour les curieux, pas pour les touristes.
+      </div>
+    </div>
+    <div class="stage" id="stage">
+      <div class="float">
+        <div class="phone" id="phone">
+          <div class="screen">
+            <div class="isl"></div>
+            <div class="sbar"><span>9:41</span><span>◔ ▰</span></div>
+            <div class="hi"><small>JEUDI 18 JUIN</small><b>Bonjour, Alex ✳</b></div>
+            <div class="feat"><img id="pImg" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=600&q=80" alt=""><div><small>VOTRE PROCHAINE ESCAPADE</small><b id="pT">Cinque Terre</b></div></div>
+            <div class="plan"><h4>Votre itinéraire</h4>
+              <ul><li><i></i>Arrivée et petit déjeuner<small>9:00</small></li><li><i></i>Sentier sur la côte<small>11:30</small></li><li><i></i>Dîner face au coucher du soleil<small>19:30</small></li></ul>
+            </div>
+            <div class="tab"><span class="a">⌂</span><span>⌕</span><span>♡</span><span>◉</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="note n1"><small>Sur place</small><b id="pW">24°</b><span id="pS">Italie, 5 jours</span></div>
+      <div class="note n2"><b style="font-size:.95rem">Itinéraire prêt</b>Pensé selon votre rythme</div>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="track">
+  <span>Curiosité d’abord</span><em>Le plaisir de se perdre</em><span>Un voyage qui vous ressemble</span><em>À votre rythme</em>
+  <span>Curiosité d’abord</span><em>Le plaisir de se perdre</em><span>Un voyage qui vous ressemble</span><em>À votre rythme</em>
+</div></div>
+
+<section class="sec wrap" id="destinations">
+  <div class="head"><h2>Pas besoin d’aller loin.<br>Juste <em>ailleurs.</em></h2><p>Des adresses singulières, des détours inattendus et ces petits endroits qui finissent par devenir vos préférés.</p></div>
+  <div class="acc" id="acc">
+    <article class="dest on" tabindex="0"><img loading="lazy" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=85" alt="Village côtier des Cinque Terre"><span class="v">Cinque Terre</span><div class="c"><small>Italie, air salin</small><h3>Cinque Terre</h3><p>Des villages suspendus entre ciel et mer.</p></div></article>
+    <article class="dest" tabindex="0"><img loading="lazy" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85" alt="Sommets alpins"><span class="v">Les Alpes</span><div class="c"><small>France, Suisse, Italie</small><h3>Les Alpes</h3><p>Respirer, marcher, recommencer.</p></div></article>
+    <article class="dest" tabindex="0"><img loading="lazy" src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1400&q=85" alt="Mer turquoise des Cyclades"><span class="v">Les Cyclades</span><div class="c"><small>Grèce, tout en bleu</small><h3>Les Cyclades</h3><p>La lumière, sans agenda.</p></div></article>
+    <article class="dest" tabindex="0"><img loading="lazy" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1400&q=85" alt="Lac alpin entouré de forêt"><span class="v">Lacs de montagne</span><div class="c"><small>Eau claire et silence</small><h3>Lacs de montagne</h3><p>Un matin sans réseau, c’est déjà un voyage.</p></div></article>
+  </div>
+</section>
+
+<section class="sec wrap" id="experience">
+  <div class="head"><h2>Tout ce qu’il faut.<br>Rien de <em>superflu.</em></h2><p>Une expérience simple, pensée pour passer moins de temps à organiser et plus de temps à vivre le voyage.</p></div>
+  <div class="story" id="story" data-s="0">
+    <div class="pin"><div class="phone"><div class="screen"><div class="isl"></div>
+      <div class="sc s0"><div class="im"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt=""></div><div class="tx"><h5>Une envie de calme ?</h5><p>3 lieux choisis pour leur atmosphère</p></div><div class="bar"><i style="width:33%"></i></div></div>
+      <div class="sc s1"><div class="im"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80" alt=""></div><div class="tx"><h5>Votre plan, souple</h5><p>4 jours, 2 étapes libres pour l’imprévu</p></div><div class="bar"><i style="width:66%"></i></div></div>
+      <div class="sc s2"><div class="im"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80" alt=""></div><div class="tx"><h5>Prêt à partir</h5><p>Billets, adresses et notes, même hors ligne</p></div><div class="bar"><i style="width:100%"></i></div></div>
+    </div></div></div>
+    <div class="steps">
+      <div class="step on"><h3>Une envie suffit.</h3><p>Dites une ambiance, pas une destination. NOMA vous propose des lieux choisis pour leur atmosphère, leur histoire et ce petit quelque chose en plus.</p></div>
+      <div class="step"><h3>Un plan qui respire.</h3><p>Un itinéraire avec assez de structure pour être serein, et assez d’espace pour changer d’avis en chemin.</p></div>
+      <div class="step"><h3>Tout au même endroit.</h3><p>Vos idées, vos étapes et vos notes réunies dans une interface claire, du premier clic jusqu’au retour.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="man" id="approche">
+  <div class="wrap mg">
+    <div><h2>Les meilleurs souvenirs ne se <em>planifient</em> pas tous.</h2>
+      <p>NOMA vous aide à préparer l’essentiel pour laisser de la place à l’imprévu. Une base bien pensée, des recommandations à votre rythme, et la liberté de changer d’avis.</p>
+      <button class="btn lime" data-toast>Découvrir notre approche ↗</button></div>
+    <div class="arch"><img id="arch" loading="lazy" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=85" alt="Lac alpin entouré de montagnes et de forêt"></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Et si on partait<br><em>autrement ?</em></h2>
+  <p>Votre prochain voyage commence par une envie. Laissez votre adresse, on vous prévient à l’ouverture.</p>
+  <form class="form" id="form"><input type="email" required placeholder="Votre adresse e-mail" aria-label="Adresse e-mail"><button class="btn" type="submit">Me prévenir</button></form>
+</section>
+</main>
+
+<footer class="wrap"><span class="brand"><span class="mark">✳</span>NOMA</span><span>Concept fictif, l’application n’est pas disponible.</span><a href="#top">Retour en haut ↑</a></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+var $=function(s,c){return(c||document).querySelector(s)},$$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var toast=$('#toast'),tt;
+function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},3400)}
+$$('[data-toast]').forEach(function(b){b.addEventListener('click',function(){say('Concept de démonstration : l’application n’est pas encore disponible.')})});
+$('#form').addEventListener('submit',function(e){e.preventDefault();e.target.reset();say('Merci ! Démo uniquement, aucune adresse n’est enregistrée.')});
+
+/* ambiances du hero */
+var M={mer:{img:'photo-1516483638261-f4dbaf036963',t:'Cinque Terre',w:'24°',s:'Italie, 5 jours'},
+ montagne:{img:'photo-1464822759023-fed622ff2c3b',t:'Les Alpes',w:'11°',s:'Haute montagne, 4 jours'},
+ iles:{img:'photo-1533105079780-92b9be482077',t:'Les Cyclades',w:'27°',s:'Grèce, 6 jours'}};
+function mood(k){
+  $$('.bg img').forEach(function(i){i.classList.toggle('on',i.dataset.m===k)});
+  $$('.chip').forEach(function(c){c.setAttribute('aria-pressed',c.dataset.mood===k)});
+  var m=M[k];$('#pImg').src='https://images.unsplash.com/'+m.img+'?auto=format&fit=crop&w=600&q=80';
+  $('#pT').textContent=m.t;$('#pW').textContent=m.w;$('#pS').textContent=m.s;
+}
+$$('.chip').forEach(function(c){c.addEventListener('click',function(){mood(c.dataset.mood)})});
+var keys=['mer','montagne','iles'],ki=0,auto=setInterval(function(){ki=(ki+1)%3;mood(keys[ki])},7000);
+$$('.chip').forEach(function(c){c.addEventListener('click',function(){clearInterval(auto)})});
+
+/* inclinaison du téléphone et parallaxe */
+var hero=$('#hero'),phone=$('#phone'),bg=$('#bg'),fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+if(fine){hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;phone.style.transform='rotateY('+(-14+x*16)+'deg) rotateX('+(4-y*12)+'deg)'});
+hero.addEventListener('pointerleave',function(){phone.style.transform=''})}
+var arch=$('#arch');
+function onScroll(){var y=scrollY;if(y<innerHeight*1.2)bg.style.transform='translate3d(0,'+(y*.25)+'px,0)';
+ var r=arch.parentNode.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0){arch.style.transform='scale(1.15) translateY('+((r.top/innerHeight-.5)*-40)+'px)'}}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* accordéon */
+var dests=$$('.dest');
+function open(d){dests.forEach(function(x){x.classList.toggle('on',x===d)})}
+dests.forEach(function(d){d.addEventListener('click',function(){open(d)});d.addEventListener('focus',function(){open(d)});if(fine)d.addEventListener('mouseenter',function(){open(d)})});
+
+/* scroll story */
+var st=$('#story'),steps=$$('.step');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var i=steps.indexOf(e.target);st.dataset.s=i;steps.forEach(function(s,j){s.classList.toggle('on',j===i)})}})},{rootMargin:'-45% 0px -45% 0px'});
+steps.forEach(function(s){io.observe(s)});
+</script>
+</body>
+</html>
